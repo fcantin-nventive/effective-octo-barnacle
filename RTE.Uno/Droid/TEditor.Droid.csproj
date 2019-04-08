@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{E24263C8-85D4-4DFF-9322-0A763937026E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TEditor</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>TEditor</AssemblyName>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\TEditorWebView.cs" />
+    <Compile Include="Controls\TEditorActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Controls\LinearLayoutDetectsSoftKeyboard.cs" />
+    <Compile Include="TEditorImplementation.cs" />
+    <Compile Include="..\TEditor\CrossTEditor.cs">
+      <Link>CrossTEditor.cs</Link>
+    </Compile>
+    <Compile Include="ColorPicker\RoundColorPickerDialog.cs" />
+    <Compile Include="ColorPicker\RoundColorPickerView.cs" />
+    <Compile Include="ColorPicker\ColorChangedEventArgs.cs" />
+    <Compile Include="ColorPicker\ColorPickerPanelView.cs" />
+    <Compile Include="ColorPicker\ColorPickerView.cs" />
+    <Compile Include="ColorPicker\ColorUtils.cs" />
+    <Compile Include="ColorPicker\ColorPickerDialog.cs" />
+    <Compile Include="ColorPicker\AlphaPatternDrawable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\layout\TEditorActivity.axml" />
+    <AndroidResource Include="Resources\drawable\ZSSbgcolor.png" />
+    <AndroidResource Include="Resources\drawable\ZSSbold.png" />
+    <AndroidResource Include="Resources\drawable\ZSScenterjustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSclearstyle.png" />
+    <AndroidResource Include="Resources\drawable\ZSSforcejustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh1.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh2.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh3.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh4.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh5.png" />
+    <AndroidResource Include="Resources\drawable\ZSSh6.png" />
+    <AndroidResource Include="Resources\drawable\ZSShorizontalrule.png" />
+    <AndroidResource Include="Resources\drawable\ZSSimage.png" />
+    <AndroidResource Include="Resources\drawable\ZSSindent.png" />
+    <AndroidResource Include="Resources\drawable\ZSSinsertkeyword.png" />
+    <AndroidResource Include="Resources\drawable\ZSSitalic.png" />
+    <AndroidResource Include="Resources\drawable\ZSSkeyboard.png" />
+    <AndroidResource Include="Resources\drawable\ZSSleftjustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSlink.png" />
+    <AndroidResource Include="Resources\drawable\ZSSorderedlist.png" />
+    <AndroidResource Include="Resources\drawable\ZSSoutdent.png" />
+    <AndroidResource Include="Resources\drawable\ZSSparagraph.png" />
+    <AndroidResource Include="Resources\drawable\ZSSpicker.png" />
+    <AndroidResource Include="Resources\drawable\ZSSquicklink.png" />
+    <AndroidResource Include="Resources\drawable\ZSSredo.png" />
+    <AndroidResource Include="Resources\drawable\ZSSrightjustify.png" />
+    <AndroidResource Include="Resources\drawable\ZSSstrikethrough.png" />
+    <AndroidResource Include="Resources\drawable\ZSSsubscript.png" />
+    <AndroidResource Include="Resources\drawable\ZSSsuperscript.png" />
+    <AndroidResource Include="Resources\drawable\ZSStable.png" />
+    <AndroidResource Include="Resources\drawable\ZSStextcolor.png" />
+    <AndroidResource Include="Resources\drawable\ZSSunderline.png" />
+    <AndroidResource Include="Resources\drawable\ZSSundo.png" />
+    <AndroidResource Include="Resources\drawable\ZSSunlink.png" />
+    <AndroidResource Include="Resources\drawable\ZSSunorderedlist.png" />
+    <AndroidResource Include="Resources\drawable\ZSSviewsource.png" />
+    <AndroidResource Include="Resources\drawable\MenuDiscard.png" />
+    <AndroidResource Include="Resources\drawable\MenuSave.png" />
+    <AndroidResource Include="Resources\menu\TopToolbarMenu.xml" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\layout\dialog_color_picker.axml" />
+    <AndroidResource Include="Resources\drawable\MenuDots.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\menu\" />
+    <Folder Include="ColorPicker\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TEditor\TEditor.csproj">
+      <Project>{35D75E0C-AB1E-41E5-BB75-3344F3DDF01F}</Project>
+      <Name>TEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TEditor.Abstractions\TEditor.Abstractions.csproj">
+      <Project>{A3FF38D4-3875-422C-B6BA-6720DA5E54BE}</Project>
+      <Name>TEditor.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
+</Project>
