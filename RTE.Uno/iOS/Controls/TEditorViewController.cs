@@ -6,6 +6,7 @@ using Foundation;
 using PopColorPicker.iOS;
 using System.Threading.Tasks;
 using TEditor.Abstractions;
+using WebKit;
 
 namespace TEditor
 {
@@ -43,7 +44,7 @@ namespace TEditor
 	public sealed class TEditorViewController : UIViewController
 	{
 		TEditor.Abstractions.TEditor _richTextEditor;
-		UIWebView _webView;
+		WKWebView _webView;
 		UIScrollView _toolbarScroll;
 		UIToolbar _toolbar;
 		UIView _toolbarHolder;
@@ -58,7 +59,7 @@ namespace TEditor
 			_richTextEditor = new TEditor.Abstractions.TEditor();
 			_richTextEditor.SetJavaScriptEvaluatingFunction((input) =>
 			{
-				_webView.EvaluateJavascript(input);
+				_webView.EvaluateJavaScript(input, (_, __) => { });
 			});
 			_richTextEditor.SetJavaScriptEvaluatingWithResultFunction((input) =>
 			{
@@ -67,7 +68,7 @@ namespace TEditor
 					string res = string.Empty;
 					InvokeOnMainThread(() =>
 					{
-						res = _webView.EvaluateJavascript(input);
+						_webView.EvaluateJavaScript(input, (v,__) => res = v as NSString);
 					});
 					return res;
 				});
@@ -76,16 +77,16 @@ namespace TEditor
 
 		void StyleWebView()
 		{
-			_webView = new UIWebView(new CGRect(0, 0, this.View.Frame.Width, this.View.Frame.Height));
-			_webView.Delegate = new TEditorViewDelegate(_richTextEditor);
+			_webView = new WKWebView(new CGRect(0, 0, this.View.Frame.Width, this.View.Frame.Height), new WKWebViewConfiguration());
+			//_webView.Delegate = new TEditorViewDelegate(_richTextEditor);
 
 			_webView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth
 			| UIViewAutoresizing.FlexibleHeight
 			| UIViewAutoresizing.FlexibleTopMargin
 			| UIViewAutoresizing.FlexibleBottomMargin;
 
-			_webView.KeyboardDisplayRequiresUserAction = false;
-			_webView.ScalesPageToFit = true;
+			//_webView.KeyboardDisplayRequiresUserAction = false;
+			//_webView.ScalesPageToFit = true;
 			_webView.BackgroundColor = UIColor.White;
 			_webView.ScrollView.Bounces = false;
 
